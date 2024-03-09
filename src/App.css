@@ -1,38 +1,293 @@
-.App {
-  text-align: center;
+:root {
+  --color-lightest: #fff4e6;
+  --color-light: #ffe8cc;
+  --color-medium: #ffa94d;
+  --color-dark: #ff922b;
+}
+body {
+  background-color: #f57803;
+}
+.button {
+  background-color: var(--color-medium);
+  color: #343a40;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.button:hover {
+  background-color: var(--color-dark);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.players-select-container,
+.selected-container,
+.game-select-container {
+  margin: auto;
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 15px;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #e0a464;
+}
+.player-select,
+.game-select {
+  height: 30pxpx;
+  border-radius: 8px;
+  padding: 5px 20px 5px 20px;
+  cursor: pointer;
+  transition: 0.1s ease-in;
+  box-shadow: rgb(61, 61, 61) 3px 2px 5px;
+}
+.player-select:hover,
+.game-form-button:hover,
+.game-form-button-submit:hover,
+.game-form-button-miss:hover {
+  scale: 1.1;
+}
+.player-select:active,
+.game-form-button:active,
+.game-form-button-submit:active,
+.game-form-button-miss:active {
+  scale: 1.2;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.player-select.two,
+.game-select.two {
+  background-color: #22e7e7;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.player-select.three,
+.game-select.three {
+  background-color: #ea0b25;
+}
+
+.player-select.four,
+.game-select.four {
+  background-color: #e9f015;
+}
+
+.selected-container {
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-container {
+  margin: auto;
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 15px;
+  width: 90%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #e0a464;
+}
+
+.game-players {
+  width: 20%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.game-player {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #dd8322;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 22px;
 }
 
-.App-link {
-  color: #61dafb;
+.game-player h5 {
+  margin-left: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.game-player.active {
+  border: 2px solid rebeccapurple;
+  scale: 1.1;
+}
+
+.game-form {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #dd8322;
+  flex-wrap: wrap;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  height: 350px;
+  width: 80%;
+  position: relative;
+}
+
+.game-form-values {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  max-width: 60%;
+}
+
+.game-form-button {
+  font-size: 22px;
+  cursor: pointer;
+  height: 30px;
+  width: 50px;
+  margin: 5px 20px 5px 0;
+  border-radius: 10px;
+  border: none;
+  transition: 0.2s ease;
+  background-color: #efc273;
+  box-shadow: rgb(61, 61, 61) 2px 2px 5px;
+}
+.game-form-button-bullseye {
+  font-size: 22px;
+  cursor: pointer;
+  height: 35px;
+  width: 110px;
+  margin: 5px 20px 5px 0;
+  border-radius: 10px;
+  border: none;
+  transition: 0.2s ease;
+  background-color: #4cbb2a;
+  box-shadow: rgb(61, 61, 61) 2px 2px 5px;
+  margin-bottom: 15px;
+}
+.game-form-button-double-bullseye {
+  font-size: 22px;
+  cursor: pointer;
+  height: 35px;
+  width: 180px;
+  margin: 5px 20px 5px 0;
+  border-radius: 10px;
+  border: none;
+  transition: 0.2s ease;
+  background-color: #ea0b25;
+  box-shadow: rgb(61, 61, 61) 2px 2px 5px;
+  margin-bottom: 15px;
+}
+.game-form-button-miss {
+  font-size: 22px;
+  cursor: pointer;
+  height: 35px;
+  width: 70px;
+  margin: 15px 20px 0 0;
+  border-radius: 10px;
+  border: none;
+  transition: 0.2s ease;
+  background-color: #efc273;
+  box-shadow: rgb(61, 61, 61) 2px 2px 5px;
+}
+
+.game-form-button.active,
+.game-form-button-miss.active {
+  background-color: #b48026;
+  border: 1.5px solid;
+}
+.game-form-button-bullseye.active {
+  background-color: #46ac27;
+}
+
+.game-form-button-double-bullseye.active {
+  background-color: #d70c24;
+}
+.game-form-button-bullseye.active,
+.game-form-button-double-bullseye.active {
+  border: 1.5px solid;
+}
+
+.game-form-button-submit {
+  font-size: 22px;
+  cursor: pointer;
+  height: 40px;
+  width: 140px;
+  margin: 35px 0 5px 0;
+  border-radius: 10px;
+  border: none;
+  transition: 0.2s ease;
+  background-color: #efc273;
+  box-shadow: rgb(61, 61, 61) 2px 2px 5px;
+  position: absolute;
+  top: 225px;
+  right: 80px;
+}
+
+.game-form-multiplyers {
+  border: 1px solid #9d6016;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.remining-darts-container {
+  background-color: #e4b371;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 18px;
+}
+.remining-darts {
+  display: flex;
+  flex-direction: row;
+}
+
+.next-player-btn {
+  position: absolute;
+  top: 80px;
+  right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  height: 60px;
+  width: 90px;
+  margin: 5px 20px 5px 0;
+  border-radius: 10px;
+  border: none;
+  transition: 0.2s ease;
+  background-color: #efc273;
+  box-shadow: rgb(61, 61, 61) 2px 2px 5px;
+}
+
+.display-winner-container {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.display-winner {
+  font-size: 48px;
+  font-weight: 100;
+}
+.round,
+.remaining-shots-label {
+  font-size: 20px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.dart {
+  margin-top: 15px;
 }
